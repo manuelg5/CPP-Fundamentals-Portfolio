@@ -8,15 +8,9 @@ The project demonstrates file processing, arrays, functions, and user interactio
 ✨ Features:
 
 - 📂 File Handling: Reads student names and grades from a text file.
-
 - 👨‍🎓 Parallel Arrays: Maintains student names and grades in parallel structures.
-
 - ➗ Average Calculation: Computes the average grade for each student.
-
 - 🔝 Maximum Grade: Displays the highest grade each student achieved.
-
 - 🔻 Minimum Grade: Displays the lowest grade each student achieved.
-
 - 🎓 Letter Grades: Converts numerical grades into letter grades (A–F).
-
 - 🖥️ Menu Interface: Provides a simple user menu for interaction.

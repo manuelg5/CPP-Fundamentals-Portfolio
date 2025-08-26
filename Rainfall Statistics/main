@@ -1,0 +1,76 @@
+#include <iostream>              // for cout, cin
+#include <fstream>               // for ifstream (reading files)
+#include <iomanip>               // for fixed, setprecision, setw
+#include <string>                // for string type
+using namespace std;             // use standard namespace for simplicity
+
+int main()
+{
+    const int MONTHS = 12;                                       // total months in a year
+    string monthNames[MONTHS] = {                                // names of months (parallel to rainfall)
+        "January","February","March","April","May","June",
+        "July","August","September","October","November","December"
+    };
+
+    double rain[MONTHS];                                         // array to hold 12 rainfall values
+    ifstream in("rainfall.txt");                                 // open input file named rainfall.txt
+
+    if (!in) {                                                   // check file opened correctly
+        cout << "Could not open rainfall.txt" << endl;           // error message if file missing
+        return 1;                                                // exit program with error code
+    }
+
+    for (int i = 0; i < MONTHS; i++) {                           // loop to read 12 doubles
+        in >> rain[i];                                           // read one double for each month
+    }
+    in.close();                                                  // close the file
+
+    double sum = 0.0;                                            // variable to accumulate total rainfall
+    for (int i = 0; i < MONTHS; i++) {                           // loop through all months
+        sum += rain[i];                                          // add each month’s rainfall to sum
+    }
+    double average = sum / MONTHS;                               // compute monthly average for the year
+
+    int minIndex = 0;                                            // assume first month is minimum
+    int maxIndex = 0;                                            // assume first month is maximum
+    for (int i = 1; i < MONTHS; i++) {                           // check remaining months
+        if (rain[i] < rain[minIndex]) minIndex = i;              // update min index if smaller found
+        if (rain[i] > rain[maxIndex]) maxIndex = i;              // update max index if larger found
+    }
+
+    // bubble sort rainfall in DESCENDING order while swapping month names in parallel
+    for (int pass = 0; pass < MONTHS - 1; pass++) {              // number of passes
+        for (int i = 0; i < MONTHS - 1 - pass; i++) {            // compare adjacent elements
+            if (rain[i] < rain[i + 1]) {                         // if left is smaller than right
+                double tempR = rain[i];                          // store left rainfall temporarily
+                rain[i] = rain[i + 1];                           // move right rainfall to left
+                rain[i + 1] = tempR;                             // put temp rainfall to right
+
+                string tempM = monthNames[i];                    // store left month name temporarily
+                monthNames[i] = monthNames[i + 1];               // move right month name to left
+                monthNames[i + 1] = tempM;                       // put temp month name to right
+            }
+        }
+    }
+
+    cout << fixed << setprecision(2);                            // print all floating numbers to two decimals
+
+    cout << "Minimum: " << monthNames[MONTHS-1]                  // after sorting, last element is smallest
+         << " " << rain[MONTHS-1] << endl;                       // print month and value for minimum
+
+    cout << "Maximum: " << monthNames[0]                         // after sorting, first element is largest
+         << " " << rain[0] << endl;                              // print month and value for maximum
+
+    cout << "Monthly Average for Year: " << average << endl;     // print average rainfall
+
+    cout << "\nSorted by Total Rainfall" << endl;                // title for sorted table
+    cout << "\n" << left << setw(12) << "Month"                  // table header: Month column
+         << right << setw(8) << "Inches" << endl;                // table header: Inches column
+
+    for (int i = 0; i < MONTHS; i++) {                           // loop through sorted arrays
+        cout << left << setw(12) << monthNames[i]                // print month name in left column
+             << right << setw(8) << rain[i] << endl;             // print rainfall aligned right
+    }
+
+    return 0;                                                    // end of program
+}

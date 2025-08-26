@@ -1,0 +1,10 @@
+John Doe 85 90 78 92 88
+Jane Smith 70 75 80 85 90
+Manuel Gomez 95 93 97 89 100
+Piper Gomez 60 65 58 70 62
+Jessica Ruiz 88 82 91 87 85
+Norman Gomez 100 98 95 99 97
+Tyson Salgado 55 60 58 52 57
+Peter Parker 73 77 80 79 76
+Tony Stark 82 85 88 84 83
+Goku San 91 89 94 92 90

@@ -14,11 +14,11 @@ The project demonstrates the use of structures, arrays, input validation, and a 
 
 - 🖥️ Menu Interface: Users can choose to:
 
-- - - Enter information for all 5 speakers
+   - Enter information for all 5 speakers
 
-- - - Display all stored speaker data
+  - Display all stored speaker data
 
-- - - Exit the program
+  - Exit the program
 
 - ✔️ Input Validation: Ensures that all fields are entered and that fees are non-negative.
 

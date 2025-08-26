@@ -1,7 +1,5 @@
 # CPP-Fundamentals-Portfolio
 
-About
-
 This repository contains my C++ projects from my Associate’s program in Computer Science at Tarrant County College (TCC).
 The projects focus on learning the basics of C++ such as arrays, file input/output, sorting, and menu-driven programs.
 
